@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 /*@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 @import '~@angular/material/theming';
@@ -23,7 +24,9 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-
+.main-head {
+  color: #E07914;
+}
 .mat-drawer-content {
   overflow-x: hidden !important;
 }
@@ -42,9 +45,13 @@ body {
   display: inline-block;
 }
 
-.api-pagination .right-next {
-  position: absolute;
+.api-pagination .p-next {
   right: 10px;
+  padding-right: 10px;
+}
+
+.api-pagination .p-prev {
+  padding-left: 10px;
 }
 
 .api-pagination .li-prev, .li-next, .li-center {
@@ -75,25 +82,47 @@ body {
 }
 
 .api-pagination .li-center:last-child {
-  margin-right: 0px;
+  margin-right: 0;
 }
 
 .api-pagination .li-center:nth-child(2) a, .li-center:nth-child(3) a {
   border-left: 1px solid #777777 !important;
 }
+.api-pagination .page-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.page-item.active .page-link {
+  z-index: 0;
+  background-color: #E07914;
+}
 
-/* PAGINACJA*/
+  /* PAGINACJA*/
 
 .search_input {
   width: 100%;
   height: 50px;
   padding: 10px;
   border-radius: 4px;
-  margin: 0 .25rem;
   min-width: 125px;
-  border: 2px solid #eee;
-  border-radius: 5px;
+  border: 2px solid #E07914;
   font-size: 18px;
   transition: border-color .5s ease-out;
 }
-
+.search_box {
+  margin-bottom: 15px;
+}
+.lead-txt h1, .lead-txt img {
+  display: inline-block;
+}
+.lead-txt {
+  display: flex;
+  align-items:center;
+  margin-bottom: 10px;
+}
+.lead-txt img {
+  height: 40px;
+}
+.lead-txt h1 {
+  margin-bottom: 0;
+}

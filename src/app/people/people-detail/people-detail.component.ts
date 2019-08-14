@@ -21,20 +21,21 @@ export class PeopleDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.peopleId = params["id"];
-      this.getPeople(params["id"]);
+      this.getPeople(this.peopleId);
     });
   }
 
   public getPeople(id: number) {
-/*    this.swapiService.getPeople(id)
+    this.swapiService.getPeopleDetails(id)
       .subscribe(
         people => {
             this.people = people;
+            console.log(this.people);
         },
         error => {
           console.log(error);
         }
-      );*/
+      );
   }
 
 }

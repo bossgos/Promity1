@@ -21,11 +21,17 @@
 .spacer {
   flex: 1 1 auto;
 }
-mat-toolbar a {
+.nav-links {
   display: inline-block;
   margin: 0 10px;
   color: #FFF;
   text-decoration: none;
+}
+.nav-links:hover {
+  color: #E07914;
+}
+.link-active {
+  color: #E07914;
 }
 .logo {
   height: 50px;

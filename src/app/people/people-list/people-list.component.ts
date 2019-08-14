@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { People, PeopleViewModel } from '../../shared/models/peoples';
-import { SwapiService } from '../../shared/services/swapi.service';
+import {Component, OnInit} from '@angular/core';
+import {People, PeopleViewModel} from '../../shared/models/peoples';
+import {SwapiService} from '../../shared/services/swapi.service';
 
 @Component({
-    selector: 'app-people-list',
-    templateUrl: './people-list.component.html',
-    styleUrls: ['./people-list.component.css']
+  selector: 'app-people-list',
+  templateUrl: './people-list.component.html',
+  styleUrls: ['./people-list.component.css']
 })
 export class PeopleListComponent implements OnInit {
   public peoples: People[];
@@ -16,7 +16,8 @@ export class PeopleListComponent implements OnInit {
   public paginate: any = {};
   public search = '';
 
-  constructor(public swapiService: SwapiService) { }
+  constructor(public swapiService: SwapiService) {
+  }
 
   ngOnInit() {
     this.getPeoplesViewModel(this.pageIndex);
@@ -30,6 +31,10 @@ export class PeopleListComponent implements OnInit {
           console.log(this.peopleViewModel);
           this.totalPeoples = this.peopleViewModel.count;
           this.peoples = this.peopleViewModel.results;
+          this.peoples.forEach(item => {
+              let st = item.url.split('/');
+              item.id = parseInt(st[st.length - 2]);
+          });
           this.paginate = this.getPager(this.totalPeoples, this.paginate.currentPage, this.pageSize);
         },
         error => {
@@ -38,10 +43,9 @@ export class PeopleListComponent implements OnInit {
       );
   }
 
-
   public setPage(page: number) {
     this.getPeoplesViewModel(page);
-    window.scroll(0, 0);
+    document.querySelector('.mat-sidenav-content').scrollTop = 0;
     this.paginate = this.getPager(this.totalPeoples, page, this.pageSize);
   }
 

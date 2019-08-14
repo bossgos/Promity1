@@ -6,7 +6,7 @@ import {PeopleDetailComponent} from './people/people-detail/people-detail.compon
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/peoples', pathMatch: 'full'},
-  {path: 'people-list', component: PeopleListComponent},
+  {path: 'peoples', component: PeopleListComponent},
   {path: 'people/:id', component: PeopleDetailComponent},
   {path: '**', component: PeopleListComponent},
 ];

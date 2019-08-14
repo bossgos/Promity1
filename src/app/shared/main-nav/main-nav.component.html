@@ -23,9 +23,9 @@
       </button>
       <span><img class="logo" src="../../../assets/images/star_wars_logo.png"></span>
       <span class="spacer"></span>
-      <a [routerLink]="['peoples']">Peoples</a>
-      <a [routerLink]="['ships']">Ships</a>
-      <a [routerLink]="['planets']">Planets</a>
+      <a class="nav-links" [routerLink]="['peoples']" [routerLinkActive]="['link-active']">Peoples</a>
+      <a class="nav-links" [routerLink]="['ships']" [routerLinkActive]="['link-active']">Ships</a>
+      <a class="nav-links" [routerLink]="['planets']" [routerLinkActive]="['link-active']">Planets</a>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
