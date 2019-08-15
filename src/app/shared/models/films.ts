@@ -13,12 +13,12 @@ export class Film {
   director: string;
   producer: string;
   release_date: Date;
-  created: Date;
-  edited: Date;
   url: string;
   characters: string[];
   planets: string[];
   species: string[];
   vehicles: string[];
   starships: string[];
+  created: Date;
+  edited: Date;
 }

@@ -1,9 +1,30 @@
 <!-- breadcrumb start -->
 <div class="breadcrumb-section">
     <div class="container">
-        <div class="row">
+        <div class="row" *ngIf="people">
             <div class="col-sm-12">
-                  People detal {{peopleId}}
+                  People detal {{peopleId}} - {{people.name}}<br/>
+
+              FILMS
+              <div *ngFor="let film of films">
+                <a class="btn-primary" [routerLink]="['/film', film.id]">{{film.title}} - Episode: {{film.episode_id}}</a>
+              </div>
+              SHIPS
+              <div *ngFor="let starship of starships">
+                <a class="btn-warning" [routerLink]="['/starship', starship.id]">{{starship.name}}</a>
+              </div>
+              VEHICLES
+              <div *ngFor="let vehicle of vehicles">
+                <a class="btn-info" [routerLink]="['/vehicle', vehicle.id]">{{vehicle.name}}</a>
+              </div>
+              HOMEWORLD
+              <div *ngFor="let home of homeworld">
+                <a class="btn-danger" [routerLink]="['/planets', home.id]">{{home.name}}</a>
+              </div>
+              SPECIES
+              <div *ngFor="let spec of species">
+                <a class="btn-danger" [routerLink]="['/species', spec.id]">{{spec.name}}</a>
+              </div>
             </div>
         </div>
     </div>

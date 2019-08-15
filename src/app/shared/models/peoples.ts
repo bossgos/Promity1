@@ -16,11 +16,11 @@ export class People {
   birth_year: string;
   gender: string;
   homeworld: string;
-  created: Date;
-  edited: Date;
   url: string;
   films: string[];
   species: string[];
   vehicles: string[];
   starships: string[];
+  created: Date;
+  edited: Date;
 }

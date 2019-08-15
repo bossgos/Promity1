@@ -2,18 +2,22 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 // import { Observable, Subject, asapScheduler, pipe, of, from, interval, merge, fromEvent } from 'rxjs';
 import { Observable } from 'rxjs/Observable';
-import { People, PeopleViewModel } from '../models/peoples';
-import { Film, FilmViewModel } from '../models/films';
 import 'rxjs/add/operator/map';
-
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/concat';
 import 'rxjs/add/operator/switchMap';
-
 import 'rxjs/add/observable/forkJoin';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+
+/*  MODELS */
+import { People, PeopleViewModel } from '../models/peoples';
+import { Film, FilmViewModel } from '../models/films';
+import { Starship, StarshipsViewModel } from '../models/starships';
+import { Species, SpeciesViewModel } from '../models/species';
+import { Planet, PlanetsViewModel } from '../models/planets';
+
 
 @Injectable()
 export class SwapiService {
@@ -73,18 +77,103 @@ export class SwapiService {
       });
   }
 
-  getFilmShortDetails(id: number) {
-    this.getFilmDetails(id).subscribe(sf => {
-        this.sfilm = sf;
-      });
-    return this.sfilm.title;
-  }
-
-  getFilmName(id) {
-    return this.sfilm.find(c => c.id === id);
-  }
-
   /*  FILMS */
 
+  /*  STARSHIPS */
+  getStarshipsViewModel(page: number, search: string): Observable<StarshipsViewModel> {
+    if (search === '') {
+      return this.http.get<StarshipsViewModel>(this.swapiUrl + 'starships/?page=' + page)
+        .map(data => {
+          return data;
+        });
+    } else {
+      return this.http.get<StarshipsViewModel>(this.swapiUrl + 'starships/?page=' + page + '&search=' + search)
+        .map(data => {
+          return data;
+        });
+    }
+  }
+
+  getStarshipDetails(id: number): Observable<Starship> {
+    return this.http.get<Starship>(this.swapiUrl + 'starships/' + id)
+      .map(data => {
+        return data;
+      });
+  }
+
+  /* STARSHIPS */
+
+  /*  VEHICLES */
+  getVehiclesViewModel(page: number, search: string): Observable<StarshipsViewModel> {
+    if (search === '') {
+      return this.http.get<StarshipsViewModel>(this.swapiUrl + 'vehicles/?page=' + page)
+        .map(data => {
+          return data;
+        });
+    } else {
+      return this.http.get<StarshipsViewModel>(this.swapiUrl + 'vehicles/?page=' + page + '&search=' + search)
+        .map(data => {
+          return data;
+        });
+    }
+  }
+
+  getVehiclesDetails(id: number): Observable<Starship> {
+    return this.http.get<Starship>(this.swapiUrl + 'vehicles/' + id)
+      .map(data => {
+        return data;
+      });
+  }
+
+  /*  VEHICLES */
+
+  /*  SPECIES */
+  getSpeciesViewModel(page: number, search: string): Observable<SpeciesViewModel> {
+    if (search === '') {
+      return this.http.get<SpeciesViewModel>(this.swapiUrl + 'species/?page=' + page)
+        .map(data => {
+          return data;
+        });
+    } else {
+      return this.http.get<SpeciesViewModel>(this.swapiUrl + 'species/?page=' + page + '&search=' + search)
+        .map(data => {
+          return data;
+        });
+    }
+  }
+
+  getSpeciesDetails(id: number): Observable<Species> {
+    return this.http.get<Species>(this.swapiUrl + 'species/' + id)
+      .map(data => {
+        return data;
+      });
+  }
+
+  /*  SPECIES */
+
+  /*  PLANETS */
+  getPlanetsViewModel(page: number, search: string): Observable<PlanetsViewModel> {
+    if (search === '') {
+      return this.http.get<PlanetsViewModel>(this.swapiUrl + 'planets/?page=' + page)
+        .map(data => {
+          return data;
+        });
+    } else {
+      return this.http.get<PlanetsViewModel>(this.swapiUrl + 'planets/?page=' + page + '&search=' + search)
+        .map(data => {
+          return data;
+        });
+    }
+  }
+
+  getPlanetDetails(id: number): Observable<Planet> {
+    return this.http.get<Planet>(this.swapiUrl + 'planets/' + id)
+      .map(data => {
+        console.log(data)
+        return data;
+      });
+  }
+
+  /*  PLANETS */
 
 }

@@ -28,7 +28,7 @@ export class PeopleListComponent implements OnInit {
       .subscribe(
         peopleViewModel => {
           this.peopleViewModel = peopleViewModel;
-          console.log(this.peopleViewModel);
+          //console.log(this.peopleViewModel);
           this.totalPeoples = this.peopleViewModel.count;
           this.peoples = this.peopleViewModel.results;
           this.peoples.forEach(item => {
