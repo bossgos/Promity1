@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 /*@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 @import '~@angular/material/theming';
@@ -30,7 +29,15 @@ body {
 .mat-drawer-content {
   overflow-x: hidden !important;
 }
-
+.section {
+  margin-bottom: 30px;
+}
+.text-center {
+  margin-bottom: 20px;
+}
+.header_icon {
+  margin-right: 20px;
+}
 /* PAGINACJA*/
 .api-pagination .pagination .page-item a {
   padding: 16px 15px 16px 15px;
@@ -125,4 +132,53 @@ body {
 }
 .lead-txt h1 {
   margin-bottom: 0;
+}
+.hspace20 {
+  margin-top: 20px;
+}
+.hspace10 {
+  margin-top: 10px;
+}
+.danger {
+  color: #dc3545;
+  cursor: pointer;
+}
+.danger:hover {
+  color: #c82333;
+}
+.info {
+  color: #17a2b8;
+  cursor: pointer;
+}
+.info:hover {
+  color: #138496;
+}
+.warning {
+  color: #E07914;
+  cursor: pointer;
+}
+.warning:hover {
+  color: #e0a800;
+}
+.primary {
+  color: #007bff;
+  cursor: pointer;
+}
+.primary:hover {
+  color: #0069d9;
+}
+.secondary {
+  color: #41B54C;
+  cursor: pointer;
+}
+.secondary:hover {
+  color: #2B7731;
+}
+.leadh4 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.detailh1 {
+  font-weight: bold;
+  color: #E07914;
 }

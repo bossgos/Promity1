@@ -15,6 +15,7 @@ import 'rxjs/add/observable/throw';
 import { People, PeopleViewModel } from '../models/peoples';
 import { Film, FilmViewModel } from '../models/films';
 import { Starship, StarshipsViewModel } from '../models/starships';
+import { Vehicle, VehiclesViewModel } from '../models/vehicles';
 import { Species, SpeciesViewModel } from '../models/species';
 import { Planet, PlanetsViewModel } from '../models/planets';
 
@@ -104,22 +105,22 @@ export class SwapiService {
   /* STARSHIPS */
 
   /*  VEHICLES */
-  getVehiclesViewModel(page: number, search: string): Observable<StarshipsViewModel> {
+  getVehiclesViewModel(page: number, search: string): Observable<VehiclesViewModel> {
     if (search === '') {
-      return this.http.get<StarshipsViewModel>(this.swapiUrl + 'vehicles/?page=' + page)
+      return this.http.get<VehiclesViewModel>(this.swapiUrl + 'vehicles/?page=' + page)
         .map(data => {
           return data;
         });
     } else {
-      return this.http.get<StarshipsViewModel>(this.swapiUrl + 'vehicles/?page=' + page + '&search=' + search)
+      return this.http.get<VehiclesViewModel>(this.swapiUrl + 'vehicles/?page=' + page + '&search=' + search)
         .map(data => {
           return data;
         });
     }
   }
 
-  getVehiclesDetails(id: number): Observable<Starship> {
-    return this.http.get<Starship>(this.swapiUrl + 'vehicles/' + id)
+  getVehiclesDetails(id: number): Observable<Vehicle> {
+    return this.http.get<Vehicle>(this.swapiUrl + 'vehicles/' + id)
       .map(data => {
         return data;
       });
@@ -169,7 +170,6 @@ export class SwapiService {
   getPlanetDetails(id: number): Observable<Planet> {
     return this.http.get<Planet>(this.swapiUrl + 'planets/' + id)
       .map(data => {
-        console.log(data)
         return data;
       });
   }

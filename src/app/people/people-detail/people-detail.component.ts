@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {People} from '../../shared/models/peoples';
-import {Film, FilmViewModel} from '../../shared/models/films';
 import {SwapiService} from '../../shared/services/swapi.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-people-detail',
@@ -20,8 +19,7 @@ export class PeopleDetailComponent implements OnInit {
 
   constructor(
     public swapiService: SwapiService,
-    private route: ActivatedRoute,
-    private router: Router,
+    private route: ActivatedRoute
   ) {
   }
 
@@ -37,6 +35,7 @@ export class PeopleDetailComponent implements OnInit {
       .subscribe(
         people => {
           this.people = people;
+
           this.people.films.forEach(item => {
             let st = item.split('/');
             let id = parseInt(st[st.length - 2]);
@@ -96,12 +95,6 @@ export class PeopleDetailComponent implements OnInit {
               });
           });
 
-          console.log(this.films);
-          console.log(this.starships);
-          console.log(this.vehicles);
-          console.log(this.homeworld);
-          console.log(this.species);
-          console.log(this.people);
         },
         error => {
           console.log(error);

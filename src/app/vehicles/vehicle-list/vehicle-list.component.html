@@ -1,0 +1,84 @@
+<div class="section" style="margin-top: 30px;">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-12 lead-txt">
+        <img class="header_icon" src="../../../assets/icons/Star_Wars_Battle_Droid.svg" alt="Star Wars Battle Droid">
+        <h1 class="main-head">Vehicles - ({{totalVehicles}})</h1>
+      </div>
+    </div>
+
+    <div class="row search_box">
+      <div class="col-sm-12">
+        <input class="search_input" [(ngModel)]="search" (ngModelChange)="getVehiclesViewModel(1)"
+               placeholder="Search by vehicle name or model...">
+      </div>
+    </div>
+
+    <div class="">
+      <div class="cardList">
+        <div class="item_box cardListItem" *ngFor="let vehicle of vehicles">
+          <div class="front side">
+            <div class="content">
+              <h1>{{vehicle.name}}</h1>
+              <div class="cont">
+                <p style="margin-top: 50px;"><strong>Model:</strong> {{vehicle.model}}</p>
+                <p><strong>Length:</strong> {{vehicle.length}}</p>
+                <p><strong>Cargo capacity:</strong> {{vehicle.cargo_capacity}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="back side">
+            <div class="content">
+              <h1>{{vehicle.name}}</h1>
+              <p style="margin-top: 50px;"><strong>Length:</strong> {{vehicle.length}}</p>
+              <p><strong>Passengers:</strong> {{vehicle.passengers}}</p>
+              <a class="white-mode" [routerLink]="['/vehicle', vehicle.id]">More info</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="api-pagination" style="margin-bottom: 50px;">
+      <div class="theme-paggination-block">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <nav aria-label="Page navigation">
+                <div class="pagination row" *ngIf='totalVehicles > pageSize'>
+                  <div class="pull-left col-md-3 col-sm-12 p-prev">
+                    <div class="page-item li-prev" [ngClass]="{disabled:paginate.currentPage === 1}">
+                      <a class="page-link page-prev" (click)="setPage(paginate.currentPage - 1)" aria-label="Previous">
+                        <span aria-hidden="true"><i class="fas fa-arrow-left"></i> <span class="li-text">Previous</span></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="text-center col-md-6 col-sm-12">
+                    <div class="page-item li-center active" *ngFor="let page of paginate.pages"
+                         [ngClass]="{active:paginate.currentPage === page}">
+                      <a class="page-link" (click)="setPage(page)">{{page}}</a>
+                    </div>
+                  </div>
+                  <div class="pull-right col-md-3 col-sm-12 p-next">
+                    <div class="page-item li-next" [ngClass]="{disabled:paginate.currentPage === paginate.totalPages}">
+                      <a class="page-link page-next" (click)="setPage(paginate.currentPage + 1)" aria-label="Next">
+                        <span aria-hidden="true"><span class="li-text">Next</span> <i
+                          class="fas fa-arrow-right"></i></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+

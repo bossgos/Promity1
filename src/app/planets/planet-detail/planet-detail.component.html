@@ -1,0 +1,41 @@
+<div class="section people-details">
+  <div class="container" *ngIf="planet">
+    <div class="row hspace20">
+      <div class="col-sm-12">
+        <h1 class="detailh1">{{planet.name}}</h1>
+      </div>
+    </div>
+    <div class="row hspace20">
+      <div class="col-md-4">
+        <p><strong>Climate: </strong> {{planet.climate}}</p>
+        <p><strong>Diameter: </strong> {{planet.diameter}}</p>
+        <p><strong>Gravity: </strong> {{planet.gravity}}</p>
+      </div>
+      <div class="col-md-4">
+        <p><strong>Orbital period: </strong> {{planet.orbital_period}}</p>
+        <p><strong>Population: </strong> {{planet.population}}</p>
+        <p><strong>Rotation period: </strong> {{planet.rotation_period}}</p>
+      </div>
+      <div class="col-md-4">
+        <p><strong>Surface water: </strong> {{planet.surface_water}}</p>
+        <p><strong>Terrain: </strong> {{planet.terrain}}</p>
+      </div>
+    </div>
+    <div class="row hspace20">
+      <div class="col-md-6 text-center" *ngIf="residents.length > 0">
+        <h4 class="leadh4">RESIDENTS - ({{residents.length}})</h4>
+        <i class="fas fa-users"></i>
+        <div class="hspace10" *ngFor="let resident of residents">
+          <a class="primary" [routerLink]="['/character', resident.id]">{{resident.name}}</a>
+        </div>
+      </div>
+      <div class="col-md-6 text-center" *ngIf="films.length > 0">
+        <h4 class="leadh4">FILMS - ({{films.length}})</h4>
+        <i class="fas fa-film"></i>
+        <div class="hspace10" *ngFor="let film of films">
+          <a class="warning" [routerLink]="['/film', film.id]">{{film.title}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

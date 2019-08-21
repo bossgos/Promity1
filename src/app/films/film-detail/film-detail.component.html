@@ -1,0 +1,61 @@
+<div class="section people-details">
+  <div class="container" *ngIf="film">
+    <div class="row hspace20">
+      <div class="col-sm-12">
+        <h1 class="detailh1">{{film.title}}</h1>
+      </div>
+    </div>
+    <div class="row hspace20">
+    <div class="col-md-6">
+      <p><strong>Episode: </strong> {{film.episode_id}}</p>
+      <p><strong>Director: </strong> {{film.director}}</p>
+    </div>
+    <div class="col-md-6">
+      <p><strong>Release date: </strong> {{film.release_date}}</p>
+      <p><strong>Producer: </strong> {{film.producer}}</p>
+    </div>
+  </div>
+    <div class="row hspace20">
+      <div class="col-md-12">
+        <p><strong>Opening crawl: </strong> {{film.opening_crawl}}</p>
+      </div>
+    </div>
+    <div class="row hspace20">
+      <div class="col-md-4 text-center" *ngIf="characters.length > 0">
+        <h4 class="leadh4">CHARACTERS - ({{characters.length}})</h4>
+        <i class="fas fa-users"></i>
+        <div class="hspace10" *ngFor="let character of characters">
+          <a class="primary" [routerLink]="['/character', character.id]">{{character.name}}</a>
+        </div>
+      </div>
+      <div class="col-md-4 text-center" *ngIf="starships.length > 0">
+        <h4 class="leadh4">STARSHIPS  - ({{starships.length}})</h4>
+        <i class="fas fa-rocket"></i>
+        <div class="hspace10" *ngFor="let starship of starships">
+          <a class="warning" [routerLink]="['/starship', starship.id]">{{starship.name}}</a>
+        </div>
+      </div>
+      <div class="col-md-4 text-center" *ngIf="vehicles.length > 0">
+        <h4 class="leadh4">VEHICLES - ({{vehicles.length}})</h4>
+        <i class="fas fa-car-side"></i>
+        <div class="hspace10" *ngFor="let vehicle of vehicles">
+          <a class="info" [routerLink]="['/vehicle', vehicle.id]">{{vehicle.name}}</a>
+        </div>
+      </div>
+      <div class="col-md-4 text-center" *ngIf="species.length > 0">
+        <h4 class="leadh4">SPECIES - ({{species.length}})</h4>
+        <i class="fas fa-user"></i>
+        <div class="hspace10" *ngFor="let speciess of species">
+          <a class="danger" [routerLink]="['/species', speciess.id]">{{speciess.name}}</a>
+        </div>
+      </div>
+      <div class="col-md-4 text-center" *ngIf="planets.length > 0">
+        <h4 class="leadh4">PLANETS - ({{planets.length}})</h4>
+        <i class="fas fa-globe-europe"></i>
+        <div class="hspace10" *ngFor="let planet of planets">
+          <a class="secondary" [routerLink]="['/planet', planet.id]">{{planet.name}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

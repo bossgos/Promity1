@@ -22,6 +22,7 @@ export class Starship {
   starship_class: string;
   url: string;
   pilots: string[];
+  films: string[];
   created: Date;
   edited: Date;
 }

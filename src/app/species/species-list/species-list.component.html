@@ -1,0 +1,84 @@
+<div class="section" style="margin-top: 30px;">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-12 lead-txt">
+        <img class="header_icon" src="../../../assets/icons/Star_Wars_Darth_Vader.svg" alt="Star Wars Darth Vader">
+        <h1 class="main-head">Species - ({{totalSpecies}})</h1>
+      </div>
+    </div>
+
+    <div class="row search_box">
+      <div class="col-sm-12">
+        <input class="search_input" [(ngModel)]="search" (ngModelChange)="getSpeciesViewModel(1)"
+               placeholder="Search by species name ...">
+      </div>
+    </div>
+
+    <div class="">
+      <div class="cardList">
+        <div class="item_box cardListItem" *ngFor="let specie of species">
+          <div class="front side">
+            <div class="content">
+              <h1>{{specie.name}}</h1>
+              <div class="cont">
+                <p style="margin-top: 50px;"><strong>Average height:</strong> {{specie.average_height}}</p>
+                <p><strong>Average lifespan:</strong> {{specie.average_lifespan}}</p>
+                <p><strong>Classification:</strong> {{specie.classification}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="back side">
+            <div class="content">
+              <h1>{{specie.name}}</h1>
+              <p style="margin-top: 50px;"><strong>Designation:</strong> {{specie.designation}}</p>
+              <p><strong>Language:</strong> {{specie.language}}</p>
+              <a class="white-mode" [routerLink]="['/species', specie.id]">More info</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="api-pagination" style="margin-bottom: 50px;">
+      <div class="theme-paggination-block">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <nav aria-label="Page navigation">
+                <div class="pagination row" *ngIf='totalSpecies > pageSize'>
+                  <div class="pull-left col-md-3 col-sm-12 p-prev">
+                    <div class="page-item li-prev" [ngClass]="{disabled:paginate.currentPage === 1}">
+                      <a class="page-link page-prev" (click)="setPage(paginate.currentPage - 1)" aria-label="Previous">
+                        <span aria-hidden="true"><i class="fas fa-arrow-left"></i> <span class="li-text">Previous</span></span>
+                        <span class="sr-only">Previous</span>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="text-center col-md-6 col-sm-12">
+                    <div class="page-item li-center active" *ngFor="let page of paginate.pages"
+                         [ngClass]="{active:paginate.currentPage === page}">
+                      <a class="page-link" (click)="setPage(page)">{{page}}</a>
+                    </div>
+                  </div>
+                  <div class="pull-right col-md-3 col-sm-12 p-next">
+                    <div class="page-item li-next" [ngClass]="{disabled:paginate.currentPage === paginate.totalPages}">
+                      <a class="page-link page-next" (click)="setPage(paginate.currentPage + 1)" aria-label="Next">
+                        <span aria-hidden="true"><span class="li-text">Next</span> <i
+                          class="fas fa-arrow-right"></i></span>
+                        <span class="sr-only">Next</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+

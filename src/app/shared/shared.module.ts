@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 // Services
 import { SwapiService } from '../shared/services/swapi.service';
 
+
 // Components
 
 @NgModule({
@@ -20,7 +21,7 @@ import { SwapiService } from '../shared/services/swapi.service';
   declarations: [
   ],
   providers: [
-    SwapiService,
+    SwapiService
   ]
 })
 export class SharedModule {}

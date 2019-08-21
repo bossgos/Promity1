@@ -3,7 +3,7 @@
 
     <div class="row">
       <div class="col-md-12 lead-txt">
-        <img class="header_icon" src="../../../assets/icons/Star_Wars_Storm-Trooper.svg" alt="Star_Wars_Storm-Trooper">
+        <img class="header_icon" src="../../../assets/icons/Star_Wars_Storm-Trooper.svg" alt="Star Wars Storm-Trooper">
         <h1 class="main-head">Star Wars characters - ({{totalPeoples}})</h1>
       </div>
     </div>
@@ -22,20 +22,20 @@
             <div class="content">
               <h1>{{people.name}}</h1>
               <div class="cont">
-                <p style="margin-top: 50px;">Birth year: {{people.birth_year}}</p>
-                <p>Gender: {{people.gender}}</p>
-                <p>Height: {{people.height}}</p>
-                <p>Mass: {{people.mass}}</p>
+                <p style="margin-top: 50px;"><strong>Birth year:</strong> {{people.birth_year}}</p>
+                <p><strong>Gender:</strong> {{people.gender}}</p>
+                <p><strong>Height:</strong> {{people.height}}</p>
+                <p><strong>Mass:</strong> {{people.mass}}</p>
               </div>
             </div>
           </div>
           <div class="back side">
             <div class="content">
               <h1>{{people.name}}</h1>
-              <p style="margin-top: 50px;">Skin color: {{people.skin_color}}</p>
-              <p>Eye color: {{people.eye_color}}</p>
-              <p>Hair color: {{people.hair_color}}</p>
-              <a class="white-mode" [routerLink]="['/people', people.id]">More info</a>
+              <p style="margin-top: 50px;"><strong>Skin color:</strong> {{people.skin_color}}</p>
+              <p><strong>Eye color:</strong> {{people.eye_color}}</p>
+              <p><strong>Hair color:</strong> {{people.hair_color}}</p>
+              <a class="white-mode" [routerLink]="['/character', people.id]">More info</a>
             </div>
           </div>
         </div>

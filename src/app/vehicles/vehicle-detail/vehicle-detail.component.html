@@ -1,0 +1,42 @@
+<div class="section people-details">
+  <div class="container" *ngIf="vehicle">
+    <div class="row hspace20">
+      <div class="col-sm-12">
+        <h1 class="detailh1">{{vehicle.name}}</h1>
+      </div>
+    </div>
+    <div class="row hspace20">
+      <div class="col-md-4">
+        <p><strong>Model: </strong> {{vehicle.model}}</p>
+        <p><strong>Cost in credits: </strong> {{vehicle.cost_in_credits}}</p>
+        <p><strong>Max atmosphering speed: </strong> {{vehicle.crew}}</p>
+      </div>
+      <div class="col-md-4">
+        <p><strong>Consumables: </strong> {{vehicle.consumables}}</p>
+        <p><strong>Crew: </strong> {{vehicle.crew}}</p>
+        <p><strong>Passengers: </strong> {{vehicle.passengers}}</p>
+      </div>
+      <div class="col-md-4">
+        <p><strong>Length: </strong> {{vehicle.length}}</p>
+        <p><strong>Manufacturer: </strong> {{vehicle.manufacturer}}</p>
+        <p><strong>Cargo capacity: </strong> {{vehicle.cargo_capacity}}</p>
+      </div>
+    </div>
+    <div class="row hspace20">
+      <div class="col-md-6 text-center" *ngIf="pilots.length > 0">
+        <h4 class="leadh4">PILOTS - ({{pilots.length}})</h4>
+        <i class="fas fa-users"></i>
+        <div class="hspace10" *ngFor="let pilot of pilots">
+          <a class="primary" [routerLink]="['/character', pilot.id]">{{pilot.name}}</a>
+        </div>
+      </div>
+      <div class="col-md-6 text-center" *ngIf="films.length > 0">
+        <h4 class="leadh4">FILMS - ({{films.length}})</h4>
+        <i class="fas fa-film"></i>
+        <div class="hspace10" *ngFor="let film of films">
+          <a class="warning" [routerLink]="['/film', film.id]">{{film.title}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
